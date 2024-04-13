@@ -1,9 +1,5 @@
 require 'spec_helper'
 
-RSpec.configure do |config|
-  config.formatter = :documentation
-end
-
 RSpec.describe Patron do
   describe '#initialize' do
     it 'is an instance of Patron' do
@@ -25,9 +21,9 @@ RSpec.describe Patron do
       
       expect(patron_1.interests).to eq([])
 
-      patron_1.add_interest("Gems and Minerals")
       patron_1.add_interest("Dead Sea Scrolls")
-
+      patron_1.add_interest("Gems and Minerals")
+      patron_1.find_by_interest
       expect(patron_1.interests).to eq(["Dead Sea Scrolls", "Gems and Minerals"])
     end
   end
